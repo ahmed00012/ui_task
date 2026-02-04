@@ -39,17 +39,23 @@ class OrderSummaryWidget extends StatelessWidget {
               ),
 
               /// الجزء الأيمن: أيقونة الطباعة
+              /// الجزء الأيمن: أيقونة الطباعة
               Container(
-                width: 50,
-                decoration: BoxDecoration(
-                  color: Colors.green.shade700,
-                  borderRadius: const BorderRadius.only(
+                width: 48,
+                height: 49,
+                decoration: const BoxDecoration(
+                  color: Color.fromRGBO(30, 30, 30, 1),
+                  borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12),
                     bottomRight: Radius.circular(12),
                   ),
                 ),
                 child: IconButton(
-                  icon: const Icon(Icons.print, color: Colors.white),
+                  icon: const Icon(
+                    Icons.print,
+                    color: Colors.white,
+                    size: 22,
+                  ),
                   onPressed: () {
                     // TODO: إضافة وظيفة الطباعة
                   },
