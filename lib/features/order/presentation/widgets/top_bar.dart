@@ -6,27 +6,40 @@ class TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12),
+    return Container(
+      margin: const EdgeInsets.fromLTRB(16, 12, 16, 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
       child: Row(
         children: [
           _btn(
             text: 'Done',
-            background: AppColors.green,
-            textColor: AppColors.white,
+            bg: AppColors.green,
+            textColor: Colors.white,
           ),
           const SizedBox(width: 8),
           _btn(
             text: 'Cancel',
-            background: AppColors.cancelGrey,
-            textColor: AppColors.white,
+            bg: const Color(0xFF8C8C8A),
+            textColor: Colors.white,
           ),
           const Spacer(),
           const Text(
             'Order# 987987987   Table TG-T10',
             style: TextStyle(
               fontSize: 14,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w600,
+              color: AppColors.darkText,
             ),
           ),
         ],
@@ -36,18 +49,18 @@ class TopBar extends StatelessWidget {
 
   Widget _btn({
     required String text,
-    required Color background,
+    required Color bg,
     required Color textColor,
   }) {
     return SizedBox(
-      height: 36, // ارتفاع مريح للزر (قريب من Figma)
+      height: 36,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: background,
+          backgroundColor: bg,
           elevation: 0,
-          padding: const EdgeInsets.symmetric(horizontal: 14),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(18),
           ),
         ),
         onPressed: () {},
@@ -55,11 +68,9 @@ class TopBar extends StatelessWidget {
           text,
           style: TextStyle(
             fontFamily: 'Montserrat',
-            fontWeight: FontWeight.w700, // Bold
+            fontWeight: FontWeight.w700,
             fontSize: 14,
-            height: 1, // Line height 100%
-            letterSpacing: 0,
-            color: textColor, // أبيض
+            color: textColor,
           ),
         ),
       ),
